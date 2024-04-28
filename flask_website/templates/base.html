@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>TerraTech</title>
+    <meta charset="utf-8" />
+    <link rel="icon" href="{{ url_for('static', filename='img/icon.png') }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <header id="site-header">
+        <div class="container">
+        <div>
+            <a href='/'><img src="{{ url_for('static', filename='img/applogo.png') }}" style="height:50px"></a>
+        </div>
+        <a class="menu_item" href="/">Home</a>
+        <a class="menu_item" href="/stats">Statistics</a>
+        <a class="menu_item" href="/data">Data</a>
+        </div>
+    </header>
+{% block head %}{% endblock %}
+</head>
+<body>
+    {% block body %}{% endblock %}
+</body>
+</html>
