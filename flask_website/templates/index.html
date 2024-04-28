@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Home</title>
+{% endblock %}
+
+{% block body %}
+
+
+    <a class="how_is">How is your plant doing?</a>
+    <div class="container" style="margin-top: 20px;">
+        <div class="stat">
+            <img src="{{ url_for('static', filename='img/humidity_icon.png') }}" class="icon"><br>
+            <div class="property">Humidity</div>
+            <div class="property_value">{{humidity}}</div>
+        </div>
+
+        <div class="stat">
+            <img src="{{ url_for('static', filename='img/temperature_icon.png') }}" class="icon"><br>
+            <div class="property">Temperature</div>
+            <div class="property_value">{{temperature}}</div>
+        </div>
+
+        <div class="stat">
+            <img src="{{ url_for('static', filename='img/soil_status.png') }}" class="icon"><br>
+            <div class="property">Soil status</div>
+            <div class="property_value">{{soil_status}}</div>
+        </div>
+    </div>
+
+    <img src="{{ url_for('static', filename='img/plant.png') }}" style="bottom: 0; right: 0; position: absolute; height:120vh">
+
+{% endblock %}
