@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/HomePage">
+
+    <fragment
+        android:id="@+id/HomePage"
+        android:name="iotca.terratech.HomePage"
+        android:label="@string/home_page"
+        tools:layout="@layout/home_page">
+
+        <action
+            android:id="@+id/action_HomePage_to_ScanLoadingPage"
+            app:destination="@id/ScanLoadingPage" />
+    </fragment>
+    <fragment
+        android:id="@+id/ScanLoadingPage"
+        android:name="iotca.terratech.ScanLoadingPage"
+        android:label="@string/scan_loading_page"
+        tools:layout="@layout/scan_loading_page">
+
+        <action
+            android:id="@+id/action_ScanLoadingPage_to_ScanPage"
+            app:destination="@id/ScanPage" />
+        <action
+            android:id="@+id/action_ScanLoadingPage_to_HomePage"
+            app:destination="@id/HomePage" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/ScanPage"
+        android:name="iotca.terratech.ScanPage"
+        android:label="@string/scan_page"
+        tools:layout="@layout/scan_page">
+
+        <action
+            android:id="@+id/action_ScanPage_to_WateringPage"
+            app:destination="@id/WateringPage" />
+        <action
+            android:id="@+id/action_ScanPage_to_HomePage"
+            app:destination="@id/HomePage" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/WateringPage"
+        android:name="iotca.terratech.WateringPage"
+        android:label="@string/watering_page"
+        tools:layout="@layout/watering_page">
+
+        <action
+            android:id="@+id/action_WateringPage_to_HomePage"
+            app:destination="@id/HomePage" />
+        <action
+            android:id="@+id/action_WateringPage_to_WateringFinishedPage"
+            app:destination="@id/WateringFinishedPage" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/WateringFinishedPage"
+        android:name="iotca.terratech.WateringFinishedPage"
+        android:label="@string/watering_finished_page"
+        tools:layout="@layout/watering_finished_page">
+
+        <action
+            android:id="@+id/action_WateringFinishedPage_to_HomePage"
+            app:destination="@id/HomePage" />
+        <action
+            android:id="@+id/action_WateringFinishedPage_to_ScanLoadingPage"
+            app:destination="@id/ScanLoadingPage" />
+    </fragment>
+</navigation>
