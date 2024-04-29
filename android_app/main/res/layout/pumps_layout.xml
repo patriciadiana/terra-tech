@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="174dp"
+        android:layout_height="26dp"
+        android:text="@string/enter_number_of_pumps"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/editTextDialog"
+        android:layout_width="174dp"
+        android:layout_height="41dp"
+        android:hint="@string/number_of_pumps"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="@+id/textView"
+        app:layout_constraintStart_toStartOf="@+id/textView"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <Button
+        android:id="@+id/submitButton"
+        android:layout_width="105dp"
+        android:layout_height="38dp"
+        android:text="Submit"
+        android:backgroundTint="@color/green"
+        app:layout_constraintEnd_toEndOf="@+id/editTextDialog"
+        app:layout_constraintStart_toStartOf="@+id/editTextDialog"
+        app:layout_constraintTop_toBottomOf="@+id/editTextDialog" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

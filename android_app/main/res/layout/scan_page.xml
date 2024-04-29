@@ -1,0 +1,431 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient"
+    tools:context=".ScanPage">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp">
+
+        <!--        logo image-->
+
+        <ImageButton
+            android:id="@+id/home_redirecting_logo"
+            android:layout_width="170dp"
+            android:layout_height="78dp"
+            android:layout_marginStart="-5dp"
+            android:layout_marginTop="0dp"
+            android:adjustViewBounds="true"
+            android:backgroundTint="@color/white"
+            android:maxWidth="42dp"
+            android:maxHeight="42dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/applogo"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!--        plant image-->
+
+        <!--        plant prediction button-->
+
+        <!--        stats card-->
+
+        <!--        next page button-->
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/image_card"
+            android:layout_width="330dp"
+            android:layout_height="200dp"
+            android:layout_marginTop="100dp"
+            app:cardCornerRadius="15dp"
+            app:cardElevation="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/roundedImageView"
+                android:layout_width="match_parent"
+                android:layout_height="197dp"
+                android:layout_marginBottom="-10dp"
+                android:background="@color/white"
+                android:scaleType="centerCrop"
+                android:src="@drawable/fluare" />
+
+
+        </androidx.cardview.widget.CardView>
+
+        <!--        water button-->
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/stats_card3"
+            android:layout_width="100dp"
+            android:layout_height="113dp"
+            android:layout_marginTop="362dp"
+            android:backgroundTint="@color/white"
+            android:translationZ="1dp"
+            app:cardCornerRadius="15dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/stats_card2"
+            app:layout_constraintTop_toTopOf="parent">
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/soil_status_icon"
+                    android:layout_width="18dp"
+                    android:layout_height="23dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="16dp"
+                    android:background="@color/white"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/soil_status"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/soil_status"
+                    android:layout_width="88dp"
+                    android:layout_height="27dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="55dp"
+                    android:elevation="11dp"
+                    android:text="@string/soil_status"
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/text_gray"
+                    android:textSize="14sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/soil_status_value"
+                    android:layout_width="68dp"
+                    android:layout_height="25dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="82dp"
+                    android:elevation="11dp"
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/green"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/stats_card1"
+            android:layout_width="100dp"
+            android:layout_height="113dp"
+            android:layout_marginTop="360dp"
+            android:backgroundTint="@color/white"
+            android:translationZ="1dp"
+            app:cardCornerRadius="15dp"
+            app:layout_constraintEnd_toStartOf="@+id/stats_card2"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/humidity_icon"
+                    android:layout_width="25dp"
+                    android:layout_height="23dp"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginTop="16dp"
+                    android:background="@color/white"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/humidity_icon"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/humidity"
+                    android:layout_width="88dp"
+                    android:layout_height="27dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="55dp"
+                    android:elevation="11dp"
+                    android:text="@string/humidity"
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/text_gray"
+                    android:textSize="14sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/humidity_value"
+                    android:layout_width="51dp"
+                    android:layout_height="23dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="82dp"
+                    android:elevation="11dp"
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/green"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/stats_card2"
+            android:layout_width="100dp"
+            android:layout_height="113dp"
+            android:layout_marginTop="362dp"
+            android:backgroundTint="@color/white"
+            android:translationZ="1dp"
+            app:cardCornerRadius="15dp"
+            app:layout_constraintEnd_toStartOf="@+id/stats_card3"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/stats_card1"
+            app:layout_constraintTop_toTopOf="parent">
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/temperature_icon"
+                    android:layout_width="15dp"
+                    android:layout_height="23dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="16dp"
+                    android:background="@color/white"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/temperature_icon"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/temperature"
+                    android:layout_width="107dp"
+                    android:layout_height="26dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="55dp"
+                    android:elevation="11dp"
+                    android:text="@string/temperature"
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/text_gray"
+                    android:textSize="14sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/temperature_value"
+                    android:layout_width="51dp"
+                    android:layout_height="23dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="82dp"
+                    android:elevation="11dp"
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/green"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/stats_card4"
+            android:layout_width="330dp"
+            android:layout_height="150dp"
+            android:layout_marginTop="500dp"
+            android:backgroundTint="@color/white"
+            android:translationZ="1dp"
+            app:cardCornerRadius="15dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/watering_routine1"
+                    android:layout_width="267dp"
+                    android:layout_height="23dp"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="18dp"
+                    android:elevation="11dp"
+                    android:text="Reccommended watering routine"
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/text_gray"
+                    android:textSize="16sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/pumps_icon"
+                    android:layout_width="23dp"
+                    android:layout_height="23dp"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginTop="60dp"
+                    android:background="@color/white"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/nr_pumps"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/number_of_pumps"
+                    android:layout_width="100dp"
+                    android:layout_height="27dp"
+                    android:layout_marginStart="40dp"
+                    android:layout_marginTop="60dp"
+                    android:elevation="11dp"
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/gray"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+                <ImageView
+                    android:id="@+id/interval_icon"
+                    android:layout_width="23dp"
+                    android:layout_height="23dp"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginTop="105dp"
+                    android:background="@color/white"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/nr_seconds"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/time_interval"
+                    android:layout_width="140dp"
+                    android:layout_height="47dp"
+                    android:layout_marginStart="40dp"
+                    android:layout_marginTop="94dp"
+                    android:elevation="11dp"
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/gray"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <Button
+                    android:id="@+id/edit_interval"
+                    android:layout_width="179dp"
+                    android:layout_height="42dp"
+                    android:layout_marginStart="160dp"
+                    android:layout_marginTop="92dp"
+                    android:backgroundTint="@color/white"
+                    android:text="Edit time interval"
+                    android:textAlignment="textEnd"
+                    android:textColor="@color/text_gray"
+                    android:textSize="14sp"
+                    android:textStyle="bold|italic"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <Button
+                    android:id="@+id/edit_pumps"
+                    android:layout_width="216dp"
+                    android:layout_height="42dp"
+                    android:layout_marginStart="120dp"
+                    android:layout_marginTop="52dp"
+                    android:backgroundTint="@color/white"
+                    android:text="Edit number of pumps"
+                    android:textAlignment="textEnd"
+                    android:textColor="@color/text_gray"
+                    android:textSize="14sp"
+                    android:textStyle="bold|italic"
+                    app:layout_constraintStart_toStartOf="@+id/pumps_icon"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <!--            <TextView-->
+            <!--                android:id="@+id/textview_card4"-->
+            <!--                android:layout_width="wrap_content"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:text="@string/loading_text"-->
+            <!--                android:textAlignment="center"-->
+            <!--                android:textColor="@color/gray"-->
+            <!--                android:textSize="18sp"-->
+            <!--                app:layout_constraintEnd_toEndOf="parent"-->
+            <!--                app:layout_constraintStart_toStartOf="parent"-->
+            <!--                app:layout_constraintTop_toTopOf="parent" />-->
+
+
+        </androidx.cardview.widget.CardView>
+
+        <Button
+            android:id="@+id/watering_button"
+            android:layout_width="290dp"
+            android:layout_height="49dp"
+            android:layout_marginTop="696dp"
+            android:backgroundTint="@color/green"
+            android:text="@string/water_plant"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.571"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/flower_type_button"
+            android:layout_width="290dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="280dp"
+            android:backgroundTint="@color/green"
+            android:elevation="10dp"
+            android:text="Rose"
+            android:textColor="@color/white"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:translationZ="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:visibility="visible" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="346dp" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>

@@ -1,0 +1,36 @@
+<resources>
+    <string name="app_name">terratech</string>
+    <string name="action_settings">Settings</string>
+
+    <!-- Strings used for fragments for navigation -->
+    <string name="home_page">Home Page</string>
+    <string name="scan_loading_page">Scan Loading Page</string>
+    <string name="scan_page">Scan Page</string>
+    <string name="watering_finished_page">Watering Finished Page</string>
+    <string name="watering_page">Watering Page</string>
+
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="lorem_ipsum">lorem ipsum</string>
+    <string name="ciau_barsi_mic">ciau barsi mic</string>
+
+    <string name="scan_plant">Scan my plant</string>
+    <string name="home_page_text">Not sure on which water routine best suits your plant?\n
+        We got that covered.</string>
+    <string name="loading_text">Almost done! \nYour plant is being identified.</string>
+    <string name="finished_text">Finished</string>
+    <string name="scan_another_plant">Scan another plant</string>
+    <string name="watering_text">Your plant is being watered.</string>
+    <string name="water_plant">Water plant</string>
+    <string name="nr_pumps">5 pumps</string>
+    <string name="enter_number_of_pumps">" Enter number of pumps:"</string>
+    <string name="number_of_pumps">Number of pumps</string>
+    <string name="enter_time_interval">" Enter time interval\n between pumps:"</string>
+    <string name="time_interval">Time interval</string>
+    <string name="submit">Submit</string>
+    <string name="soil_status">Soil status</string>
+    <string name="temperature">Temperature</string>
+    <string name="humidity">Humidity</string>
+    <string name="go_home">Go to homepage</string>
+</resources>
