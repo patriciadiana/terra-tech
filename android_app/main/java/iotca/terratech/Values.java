@@ -2,7 +2,7 @@ package iotca.terratech;
 
 public class Values {
     private static Values instance;
-    private int pumps, interval;
+    private int pumps, interval, plant_id;
     private String flower_type, soil_status;
     private float humidity, temperature;
 
@@ -14,6 +14,15 @@ public class Values {
         soil_status = "Dry";
         humidity = 74;
         temperature = 23;
+        plant_id = 0;
+    }
+
+    public int getPlant_id() {
+        return plant_id;
+    }
+
+    public void setPlant_id(int plant_id) {
+        this.plant_id = plant_id;
     }
 
     public String getSoil_status() {

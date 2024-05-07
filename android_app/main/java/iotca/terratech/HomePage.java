@@ -1,5 +1,6 @@
 package iotca.terratech;
 
+import android.app.Dialog;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,6 +13,9 @@ import androidx.navigation.fragment.NavHostFragment;
 import iotca.terratech.databinding.HomePageBinding;
 
 import android.os.AsyncTask;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 
 import com.jcraft.jsch.ChannelExec;
 import com.jcraft.jsch.JSch;
@@ -39,13 +43,51 @@ public class HomePage extends Fragment {
         binding.scanButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                showDialog(R.layout.set_plant_id_layout);
+            }
+        });
+    }
+
+    private void showDialog(int dialog_id) {
+        // Create the dialog
+        Dialog dialog = new Dialog(getContext());
+        dialog.setContentView(dialog_id);
+
+        EditText editTextDialog = dialog.findViewById(R.id.editTextDialog);
+        Button submitButton = dialog.findViewById(R.id.submitButton);
+
+        submitButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                String inputText = editTextDialog.getText().toString();
+
+                if(!inputText.isEmpty())
+                {
+                    if(dialog_id==R.layout.pumps_layout){
+                        Values.getInstance().setPumps(Integer.parseInt(inputText));
+                        System.out.println(Values.getInstance().getPumps());
+                    }
+                    else {
+                        Values.getInstance().setInterval(Integer.parseInt(inputText));
+                        System.out.println(Values.getInstance().getInterval());
+                    }
+                }
+
+                System.out.println(inputText);
+
+                Values.getInstance().setPlant_id(Integer.parseInt(inputText));
+
+                dialog.dismiss();
+
                 new ExecuteScriptTask().execute();
                 NavHostFragment.findNavController(HomePage.this)
                         .navigate(R.id.action_HomePage_to_ScanLoadingPage);
             }
         });
-    }
 
+        dialog.show();
+    }
     @Override
     public void onDestroyView() {
         super.onDestroyView();
@@ -65,7 +107,8 @@ public class HomePage extends Fragment {
                 session.connect();
 
                 String command = "cd /home && cd barsi && cd Desktop" +
-                        " && cd flower_recognition && python flower_data.py > /dev/null 2>&1";
+                        " && cd flower_recognition && python flower_data.py " + Values.getInstance().getPlant_id() +
+                        " > /dev/null 2>&1";
                 ChannelExec channel = (ChannelExec) session.openChannel("exec");
                 channel.setCommand(command);
 

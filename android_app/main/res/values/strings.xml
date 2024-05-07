@@ -33,4 +33,6 @@
     <string name="temperature">Temperature</string>
     <string name="humidity">Humidity</string>
     <string name="go_home">Go to homepage</string>
+    <string name="enter_plant_id">Enter plant id:</string>
+    <string name="plant_id">Plant id</string>
 </resources>
