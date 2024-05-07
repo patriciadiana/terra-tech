@@ -7,24 +7,44 @@
 {% block body %}
 
 
-    <a class="how_is">How is your plant doing?</a>
+    <a class="how_is">How are your plants doing?</a>
     <div class="container" style="margin-top: 20px;">
         <div class="stat">
             <img src="{{ url_for('static', filename='img/humidity_icon.png') }}" class="icon"><br>
             <div class="property">Humidity</div>
-            <div class="property_value">{{humidity}}</div>
+            <div class="property_value">{{humidity1}}</div>
         </div>
 
         <div class="stat">
             <img src="{{ url_for('static', filename='img/temperature_icon.png') }}" class="icon"><br>
             <div class="property">Temperature</div>
-            <div class="property_value">{{temperature}}</div>
+            <div class="property_value">{{temperature1}}</div>
         </div>
 
         <div class="stat">
             <img src="{{ url_for('static', filename='img/soil_status.png') }}" class="icon"><br>
             <div class="property">Soil status</div>
-            <div class="property_value">{{soil_status}}</div>
+            <div class="property_value">{{soil_status1}}</div>
+        </div>
+    </div>
+
+    <div class="container" style="margin-top: 20px;">
+        <div class="stat">
+            <img src="{{ url_for('static', filename='img/humidity_icon.png') }}" class="icon"><br>
+            <div class="property">Humidity</div>
+            <div class="property_value">{{humidity2}}</div>
+        </div>
+
+        <div class="stat">
+            <img src="{{ url_for('static', filename='img/temperature_icon.png') }}" class="icon"><br>
+            <div class="property">Temperature</div>
+            <div class="property_value">{{temperature2}}</div>
+        </div>
+
+        <div class="stat">
+            <img src="{{ url_for('static', filename='img/soil_status.png') }}" class="icon"><br>
+            <div class="property">Soil status</div>
+            <div class="property_value">{{soil_status2}}</div>
         </div>
     </div>
 

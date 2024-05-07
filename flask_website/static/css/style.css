@@ -57,7 +57,7 @@ body {
 table {
     font-family: arial, sans-serif;
     border-collapse: collapse;
-    width: 40%;
+    width: 100%;
   }
   
   td, th {
@@ -69,3 +69,4 @@ table {
   tr:nth-child(even) {
     background-color: #e8faea6e;
   }
+
