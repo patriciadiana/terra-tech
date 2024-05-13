@@ -5,6 +5,12 @@ public class Values {
     private int pumps, interval, plant_id;
     private String flower_type, soil_status;
     private float humidity, temperature;
+    public static synchronized Values getInstance() {
+        if (instance == null) {
+            instance = new Values();
+        }
+        return instance;
+    }
 
     private Values() {
         // Initialize your variables here
@@ -55,12 +61,6 @@ public class Values {
     public static final String HOST = "192.168.1.163";
     //    public static final String HOST = "192.168.43.207";
 
-    public static synchronized Values getInstance() {
-        if (instance == null) {
-            instance = new Values();
-        }
-        return instance;
-    }
 
     public String getFlower_type() {
         return flower_type;

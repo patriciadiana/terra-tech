@@ -83,7 +83,7 @@ public class ScanLoadingPage extends Fragment {
             System.out.println(command_output);
             String[] values = command_output.split(" ");
 
-            Values.getInstance().setFlower_type(values[0]);
+            Values.getInstance().setFlower_type(values[0] + " - " + Values.getInstance().getPlant_id());
             set_watering_routine(values[0]);
 
             Values.getInstance().setTemperature(Float.parseFloat(values[1]));
