@@ -2,9 +2,13 @@ package iotca.terratech;
 
 import android.annotation.SuppressLint;
 import android.app.Dialog;
+import android.content.Context;
 import android.content.res.Resources;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Base64;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,26 +22,40 @@ import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
 
 import com.bumptech.glide.Glide;
+import com.jcraft.jsch.Channel;
 import com.jcraft.jsch.ChannelExec;
+import com.jcraft.jsch.ChannelSftp;
 import com.jcraft.jsch.JSch;
 import com.jcraft.jsch.Session;
 
 import org.w3c.dom.Text;
+
+import java.io.BufferedReader;
+import java.io.FileOutputStream;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.File;
 
 import iotca.terratech.databinding.ScanPageBinding;
 
 public class ScanPage extends Fragment {
 
     private ScanPageBinding binding;
+    private ImageView imageView;
+
 
     @Override
     public View onCreateView(
             @NonNull LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState
     ) {
-
-
         binding = ScanPageBinding.inflate(inflater, container, false);
+
+        imageView = binding.roundedImageView;
+
+        new DownloadImageTask().execute();
+
         return binding.getRoot();
 
     }
@@ -182,4 +200,75 @@ public class ScanPage extends Fragment {
         }
     }
 
+    private class DownloadImageTask extends AsyncTask<Void, Void, String> {
+
+        @Override
+        protected String doInBackground(Void... voids) {
+            try {
+                // SSH connection setup to retrieve image file from Raspberry Pi
+                JSch jsch = new JSch();
+                Session session = jsch.getSession(Values.USERNAME, Values.HOST, Values.PORT);
+                session.setPassword(Values.PASSWORD);
+                session.setConfig("StrictHostKeyChecking", "no");
+                session.setTimeout(120000);
+                session.connect();
+
+                // Create SFTP channel
+                Channel channel = session.openChannel("sftp");
+                channel.connect();
+                ChannelSftp sftpChannel = (ChannelSftp) channel;
+
+                // Download the image file from Raspberry Pi
+                String remoteFilePath = "/home/barsi/Desktop/flower_recognition/image_base64.txt";
+                String localFilePath = getActivity().getFilesDir() + File.separator + "image_base64.txt";
+                sftpChannel.get(remoteFilePath, localFilePath);
+
+                // Close SFTP channel and session
+                sftpChannel.disconnect();
+                channel.disconnect();
+                session.disconnect();
+
+                // Return the local file path of the downloaded image file
+                return localFilePath;
+
+            } catch (Exception e) {
+                e.printStackTrace();
+                return null;
+            }
+        }
+
+        @Override
+        protected void onPostExecute(String localFilePath) {
+            if (localFilePath != null) {
+                // Read the Base64-encoded image data from the file
+                String base64Image = readBase64FromFile(localFilePath);
+
+                // Decode the Base64 string into a Bitmap
+                Bitmap decodedBitmap = decodeBase64ToBitmap(base64Image);
+
+                // Display the decoded image in the ImageView
+                if (decodedBitmap != null) {
+                    imageView.setImageBitmap(decodedBitmap);
+                }
+            }
+        }
+    }
+
+    private String readBase64FromFile(String filePath) {
+        StringBuilder stringBuilder = new StringBuilder();
+        try (BufferedReader reader = new BufferedReader(new FileReader(new File(filePath)))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                stringBuilder.append(line);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return stringBuilder.toString();
+    }
+
+    private Bitmap decodeBase64ToBitmap(String base64Image) {
+        byte[] decodedBytes = Base64.decode(base64Image, Base64.DEFAULT);
+        return BitmapFactory.decodeByteArray(decodedBytes, 0, decodedBytes.length);
+    }
 }

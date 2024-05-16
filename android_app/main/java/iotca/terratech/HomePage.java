@@ -62,18 +62,6 @@ public class HomePage extends Fragment {
 
                 String inputText = editTextDialog.getText().toString();
 
-                if(!inputText.isEmpty())
-                {
-                    if(dialog_id==R.layout.pumps_layout){
-                        Values.getInstance().setPumps(Integer.parseInt(inputText));
-                        System.out.println(Values.getInstance().getPumps());
-                    }
-                    else {
-                        Values.getInstance().setInterval(Integer.parseInt(inputText));
-                        System.out.println(Values.getInstance().getInterval());
-                    }
-                }
-
                 System.out.println(inputText);
 
                 Values.getInstance().setPlant_id(Integer.parseInt(inputText));
@@ -107,7 +95,8 @@ public class HomePage extends Fragment {
                 session.connect();
 
                 String command = "cd /home && cd barsi && cd Desktop" +
-                        " && cd flower_recognition && python flower_data.py " + Values.getInstance().getPlant_id() +
+                        " && cd flower_recognition && " +
+                        " python flower_data.py " + Values.getInstance().getPlant_id() +
                         " > /dev/null 2>&1";
                 ChannelExec channel = (ChannelExec) session.openChannel("exec");
                 channel.setCommand(command);
